@@ -10,4 +10,6 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'v2-crud';
+
+  isLoggedIn: boolean = true;
 }

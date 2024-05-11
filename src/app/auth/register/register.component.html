@@ -1,0 +1,58 @@
+<div class="container">
+    <h1>Register User</h1>
+
+    <a href="" routerLink="/" class="btn btn-primary">Back</a>
+
+    <form [formGroup]="formRegister" (ngSubmit)="registerUser()">
+
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input formControlName="name" id="name" type="text" class="form-control">
+            @if(f['name'].touched && f['name'].invalid){
+            <div class="alert alert-danger">
+                @if(f['name'].errors && f['name'].errors['required']){
+                <div>Name is required.</div>
+                }
+            </div>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input formControlName="email" id="email" type="text" class="form-control">
+            @if(f['email'].touched && f['email'].invalid){
+            <div class="alert alert-danger">
+                @if(f['email'].errors && f['email'].errors['required']){
+                <div>Email is required.</div>
+                }
+            </div>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input formControlName="password" id="password" type="password" class="form-control">
+            @if(f['password'].touched && f['password'].invalid){
+            <div class="alert alert-danger">
+                @if(f['password'].errors && f['password'].errors['required']){
+                <div>Password is required.</div>
+                }
+            </div>
+            }
+        </div>
+        
+        <div class="form-group">
+            <label for="password_confirmation">Password Confirmation:</label>
+            <input formControlName="password_confirmation" id="password_confirmation" type="password" class="form-control">
+            @if(f['password_confirmation'].touched && f['password_confirmation'].invalid){
+            <div class="alert alert-danger">
+                @if(f['password_confirmation'].errors && f['password_confirmation'].errors['required']){
+                <div>Password is required.</div>
+                }
+            </div>
+            }
+        </div>
+
+        <button class="btn btn-primary" type="submit" [disabled]="!formRegister.valid">Create</button>
+    </form>
+</div>

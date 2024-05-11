@@ -1,0 +1,30 @@
+<div class="container">
+    <h1>ICEITech - CRUD Tickets</h1>
+
+    <a href="#" routerLink="/ticket/create/" class="btn btn-success">Create New Ticket</a>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Code</th>
+                <th>Date</th>
+                <th width="250px">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(ticket of tickets; track ticket.id){
+            <tr>
+                <td>{{ ticket.id }}</td>
+                <td>{{ ticket.code }}</td>
+                <td>{{ ticket.date }}</td>
+                <td>
+                    <a href="#" [routerLink]="['/ticket/', ticket.id, 'view']" class="btn btn-info">View</a>
+                    <a href="#" [routerLink]="['/ticket/', ticket.id, 'edit']" class="btn btn-primary">Edit</a>
+                    <button type="button" (click)="deleteTicket(ticket.id)" class="btn btn-danger">Delete</button>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
